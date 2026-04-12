@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0d200d;
+    color: #fdf0c0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold-500 text-forest-950 font-sans font-semibold tracking-widest uppercase text-sm px-8 py-3 rounded transition-all duration-300 hover:bg-gold-400 hover:shadow-gold-lg active:scale-95;
+  }
+  .btn-outline {
+    @apply border border-gold-500 text-gold-400 font-sans font-medium tracking-widest uppercase text-sm px-8 py-3 rounded transition-all duration-300 hover:bg-gold-500 hover:text-forest-950;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl text-gold-400 text-center mb-2;
+  }
+  .section-divider {
+    @apply flex items-center justify-center gap-4 mb-12;
+  }
+  .card-luxury {
+    @apply bg-forest-800/60 border border-gold-700/30 rounded-xl overflow-hidden shadow-card backdrop-blur-sm;
+  }
+  .input-luxury {
+    @apply w-full bg-forest-800/80 border border-gold-700/40 rounded-lg px-4 py-3 text-gold-200 placeholder-forest-400 font-sans text-sm focus:outline-none focus:border-gold-500 focus:shadow-gold transition-all duration-200;
+  }
+  .nav-link {
+    @apply font-sans text-sm tracking-widest uppercase text-gold-300 hover:text-gold-400 transition-colors duration-200;
+  }
+  .ornament {
+    @apply text-gold-600 text-lg select-none;
+  }
+}
+
+/* Damask pattern background */
+.damask-bg {
+  background-color: #0d200d;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(212,160,23,0.08) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a017' fill-opacity='0.04'%3E%3Cpath d='M30 0C13.43 0 0 13.43 0 30s13.43 30 30 30 30-13.43 30-30S46.57 0 30 0zm0 54C16.77 54 6 43.23 6 30S16.77 6 30 6s24 10.77 24 24-10.77 24-24 24z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d200d; }
+::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 3px; }
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.gold-shimmer {
+  background: linear-gradient(90deg, #d4a017 0%, #f8cc4d 50%, #d4a017 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
